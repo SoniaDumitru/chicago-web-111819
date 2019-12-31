@@ -14,16 +14,13 @@ module ApplicationHelper
   end
 
   def authorize!
-    # Basic basic basic! Are you logged in? Would you like to?
+    # A very simple authorization! Are you logged in? If not, let's get you started.
     redirect_to login_path if !logged_in?
   end
 
   def authorize_viewing_self!
-    # p current_user
-    # p params[:id]
-    # p current_user.id
     flash[:message] = "Nice try bucko, but that ain't you"
-    redirect_to profile if current_user.id.to_s != params[:id]
+    redirect_to current_user if current_user.id.to_s != params[:id]
   end
 
   def flash_message

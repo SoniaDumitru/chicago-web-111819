@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :authorize!, except: :new
-  # before_action :authorize_viewing_self!, only: [:show, :edit, :update]
+  before_action :authorize_viewing_self!, only: [:show, :edit, :update]
 
   def new
     @user = User.new
