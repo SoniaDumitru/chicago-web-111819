@@ -1,14 +1,10 @@
+
 <h1>Log In!</h1>
-<% if flash[:message] %>
-  <h3><em><%= flash[:message] %></em></h3>
-<% end %>
 
 <%= form_with url: '/sessions' do |f| %>
   <%= f.label :username %>
   <%= f.text_field :username %>
   <%= f.label :password %>
   <%= f.password_field :password %>
-  <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation %>
   <%= f.submit %>
 <% end %>

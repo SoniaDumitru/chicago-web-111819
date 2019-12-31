@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :authorize!, except: :new
+  # before_action :authorize_viewing_self!, only: [:show, :edit, :update]
 
   def new
     @user = User.new
@@ -18,11 +20,10 @@ class UsersController < ApplicationController
   end
 
   def show
-    if @current_user = User.find_by(id: session[:user_id])
-      @user = User.find_by(id: params[:id])
-      render :show
-    else
-      redirect_to login_path
-    end
+    @user = current_user
+    render :show
+  end
+
+  def edit
   end
 end

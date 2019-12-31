@@ -1,5 +1,11 @@
-<h1>logged in as: <%= @current_user.username %></h1>
 
-<h1>Viewing info for: <%= @user.username %></h1>
+<h1>logged in as: <%= current_user.username %></h1>
+
+<% if current_user.id == @user.id %>
+  <h1>Viewing info for: <%= @user.username %></h1>
+  <%= link_to "Edit Info", edit_user_path(@user) %>
+<% else %>
+  <h3>RESTRICTED FROM OTHER USERS. MAYBE GO TRY THIS AT <%= link_to "YOUR OWN PAGE", current_user %></h3>
+<% end %>
 
 <%= link_to "Log out", logout_path, method: :delete %>
