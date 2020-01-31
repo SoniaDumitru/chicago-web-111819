@@ -1,0 +1,20 @@
+import React, { Component } from 'react';
+
+class HogCard extends Component {
+  renderImage = () => {
+    console.log(this.props.hog.name)
+    const image = require('../hog-imgs/cherub.jpg')
+    return <img src={image}  />
+  }
+
+  render() {
+    return (
+      <div className="pigTile" >
+        {this.renderImage()}
+        <h6>{this.props.hog.name}</h6>
+      </div>
+    )
+  }
+}
+
+export default HogCard;
